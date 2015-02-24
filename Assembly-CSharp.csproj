@@ -46,9 +46,9 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\DragViewport.cs" />
+     <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\GridMgr.cs" />
      <Compile Include="Assets\Scripts\NetworkMgr.cs" />
-     <Compile Include="Assets\Scripts\PinchZoom.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Unity4.6/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>

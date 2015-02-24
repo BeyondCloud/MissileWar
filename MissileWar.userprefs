@@ -1,11 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PinchZoom.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CameraController.cs">
     <Files>
-      <File FileName="Assets\Scripts\DragViewport.cs" Line="13" Column="1" />
-      <File FileName="Assets\Scripts\NetworkMgr.cs" Line="17" Column="3" />
-      <File FileName="Assets\Scripts\PinchZoom.cs" Line="46" Column="20" />
-      <File FileName="C:\Users\Administrator\Desktop\UnityExample\SuitcaseGame\Assets\Scripts\Level\RayCastPush.cs" Line="15" Column="3" />
+      <File FileName="Assets\Scripts\CameraController.cs" Line="39" Column="80" />
+      <File FileName="C:\Users\Administrator\Desktop\UnityExample\TDdemo\Assets\TDTK_Free\Scripts\C#\CameraControl.cs" Line="138" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
