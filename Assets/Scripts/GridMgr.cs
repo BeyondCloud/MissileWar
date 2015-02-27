@@ -4,11 +4,14 @@ using System.Collections;
 public class GridMgr : MonoBehaviour {
 
 
-	public GameObject panel;
+	public GameObject touchPanel;
+
+
 	public int gridWidth = 14;
 	public int gridLength = 10;
 	private float panelWidth = 1;
 	public int [,] gridAddr;
+	public static int cursorSize = 2;
 	void Start () 
 	{
 		gridAddr = new int[gridWidth,gridLength];
@@ -22,8 +25,8 @@ public class GridMgr : MonoBehaviour {
 		{
 	   		 for(int j = 0; j < gridWidth ;j++)
 			{
-				Instantiate(panel,new Vector3((-halfgridWidth * panelWidth + halfPanelWidth ) + j * panelWidth, 0.01f , - halfPanelWidth - panelWidth * i ) , Quaternion.Euler(90,0,0));
-
+				Instantiate(touchPanel,new Vector3((-halfgridWidth * panelWidth + halfPanelWidth ) + j * panelWidth, 0.01f , - halfPanelWidth - panelWidth * i ) , Quaternion.Euler(90,0,0));
+			 	
 			}
 
 		}
