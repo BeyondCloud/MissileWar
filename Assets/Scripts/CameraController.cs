@@ -62,11 +62,12 @@ public class CameraController: MonoBehaviour {
 				RaycastHit hit;
 				if (Physics.Raycast(ray, out hit, 35.5f))
 				{
-
+				
 					selectHighLight.transform.localScale = new Vector3(GridMgr.cursorSize * 1,GridMgr.cursorSize,1);
 
 					if(GridMgr.cursorSize == 2)
 					{
+
 						if(Mathf.Sign( hit.point.x ) == 1)
 							selectPos.x = (int)(hit.point.x + 0.5f);
 						else
@@ -157,7 +158,6 @@ public class CameraController: MonoBehaviour {
 
 		}        
 	}
-
 
 	void countCurrentLimit()
 	{
