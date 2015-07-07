@@ -2,14 +2,14 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\BuildMgr.cs">
     <Files>
-      <File FileName="Assets\Scripts\BuildMgr.cs" Line="136" Column="13" />
-      <File FileName="Assets\Scripts\UnitTower.cs" Line="1" Column="1" />
-      <File FileName="C:\Users\Administrator\Desktop\UnityExample\TDdemo\Assets\TDTK_Free\Scripts\C#\UnitTower.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\CameraController.cs" Line="66" Column="14" />
+      <File FileName="C:\Users\Administrator\Desktop\UnityExample\3D_Lab\Assets\Script\Heat.cs" Line="1" Column="1" />
+      <File FileName="C:\Users\Administrator\Desktop\UnityExample\SimplePlaneWave\Assets\Standard Assets\Glass Refraction (Pro Only)\Sources\Shaders\Glass-Stained-BumpDistort.shader" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\NetworkMgr.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CameraMgr.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CameraController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\BuildMgr.cs" Line="155" Column="7" />
+      <File FileName="C:\Users\Administrator\Desktop\UnityExample\MultiplayerTutorial\Assets\Scripts\Player.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\UI.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GridMgr.cs" Line="28" Column="1" />
-      <File FileName="Assets\Scripts\TwoDimString.cs" Line="22" Column="3" />
-      <File FileName="C:\Users\Administrator\Desktop\UnityExample\ShootGame\Assets\Scripts\Player\PlayerShooting.cs" Line="77" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

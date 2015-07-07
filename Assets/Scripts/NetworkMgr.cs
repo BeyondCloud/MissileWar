@@ -6,21 +6,74 @@ public class NetworkMgr : MonoBehaviour {
 	private const string typeName = "UniqueGameName";
 	private const string gameName = "RoomName";
 	
-	private void StartServer()
-	{
-		Network.InitializeServer(2, 25000, !Network.HavePublicAddress());
-		MasterServer.RegisterHost(typeName, gameName);
-	}
-	void OnServerInitialized()
-	{
-		Debug.Log("Server Initializied");
-	}
+	private bool isRefreshingHostList = false;
+	private HostData[] hostList;
+
+	public CameraMgr camMgr;
+	
 	void OnGUI()
 	{
 		if (!Network.isClient && !Network.isServer)
 		{
 			if (GUI.Button(new Rect(100, 100, 250, 100), "Start Server"))
 				StartServer();
+			
+			if (GUI.Button(new Rect(100, 250, 250, 100), "Refresh Hosts"))
+				RefreshHostList();
+			
+			if (hostList != null)
+			{
+				for (int i = 0; i < hostList.Length; i++)
+				{
+					if (GUI.Button(new Rect(400, 100 + (110 * i), 300, 100), hostList[i].gameName))
+						JoinServer(hostList[i]);
+				}
+			}
 		}
+	}
+	
+	private void StartServer()
+	{
+		Network.InitializeServer(5, 25000, !Network.HavePublicAddress());
+		MasterServer.RegisterHost(typeName, gameName);
+	}
+	
+	void OnServerInitialized()
+	{
+		SpawnPlayer();
+	}
+	
+	
+	void Update()
+	{
+		if (isRefreshingHostList && MasterServer.PollHostList().Length > 0)
+		{
+			isRefreshingHostList = false;
+			hostList = MasterServer.PollHostList();
+		}
+	}
+	
+	private void RefreshHostList()
+	{
+		if (!isRefreshingHostList)
+		{
+			isRefreshingHostList = true;
+			MasterServer.RequestHostList(typeName);
+		}
+	}
+	
+	
+	private void JoinServer(HostData hostData)
+	{
+		Network.Connect(hostData);
+	}
+	
+	void OnConnectedToServer()
+	{
+		SpawnPlayer();
+	}
+	private void SpawnPlayer()
+	{
+		camMgr.chooseCam();
 	}
 }

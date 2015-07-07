@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BuildMgr.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\CameraMgr.cs" />
      <Compile Include="Assets\Scripts\GridMgr.cs" />
      <Compile Include="Assets\Scripts\NetworkMgr.cs" />
      <Compile Include="Assets\Scripts\TwoDimString.cs" />

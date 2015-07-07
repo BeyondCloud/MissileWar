@@ -50,20 +50,47 @@ public class CameraController: MonoBehaviour {
 	void Update () 
 	{
 		
-		print (UI.fixMoveCam);
+
 
 		if(Input.touchCount == 1  && !UI.fixMoveCam)
 		{
 
 			selectPanel.SetActive(true);
-			if(Input.GetTouch(0).phase == TouchPhase.Ended && remainSelect == false)
+
+			
+			if(Input.GetTouch(0).phase == TouchPhase.Moved)
+			{
+				
+				moveVec = (initInputPos - Input.GetTouch(0).position) * moveSpeed;
+				if(moveVec.magnitude > 0.3f)
+					remainSelect = true;
+				if(isReadyMove && selectedCamera.transform.position.y != camInit.transform.position.y)
+				{
+					selectedCamera.transform.position = new Vector3 (
+						Mathf.Clamp(camOrg.x + moveVec.x, -currentRightLimit, currentRightLimit ),
+						selectedCamera.transform.position.y,
+						Mathf.Clamp(camOrg.z + moveVec.y, currentBackLimit , currentForwardLimit )
+						);
+				}
+				
+			}
+			else if(Input.GetTouch(0).phase == TouchPhase.Began)
+			{
+				camOrg       = selectedCamera.transform.position;
+				initInputPos = Input.GetTouch(0).position;
+				isReadyMove      = true;
+				remainSelect = false;
+			}
+
+
+			else if(Input.GetTouch(0).phase == TouchPhase.Ended && remainSelect == false)
 			{
 				Ray ray = selectedCamera.ScreenPointToRay((Input.GetTouch(0).position));
 				RaycastHit hit;
 				if (Physics.Raycast(ray, out hit, 35.5f))
 				{
 				
-					selectHighLight.transform.localScale = new Vector3(GridMgr.cursorSize * 1,GridMgr.cursorSize,1);
+					selectHighLight.transform.localScale = new Vector3(GridMgr.cursorSize,GridMgr.cursorSize,1);
 
 					if(GridMgr.cursorSize == 2)
 					{
@@ -90,29 +117,8 @@ public class CameraController: MonoBehaviour {
 
 				}
 			}
-			if(Input.GetTouch(0).phase == TouchPhase.Began)
-			{
-					camOrg       = selectedCamera.transform.position;
-					initInputPos = Input.GetTouch(0).position;
-					isReadyMove      = true;
-					remainSelect = false;
-			}
-			if(Input.GetTouch(0).phase == TouchPhase.Moved)
-			{
 
-				moveVec = (initInputPos - Input.GetTouch(0).position) * moveSpeed;
-				if(moveVec.magnitude > 0.3f)
-				    remainSelect = true;
-				if(isReadyMove && selectedCamera.transform.position.y != camInit.transform.position.y)
-				{
-					selectedCamera.transform.position = new Vector3 (
-						Mathf.Clamp(camOrg.x + moveVec.x, -currentRightLimit, currentRightLimit ),
-						selectedCamera.transform.position.y,
-						Mathf.Clamp(camOrg.z + moveVec.y, currentBackLimit , currentForwardLimit )
-						);
-				}
 
-			}
 
 
 		}
@@ -138,7 +144,7 @@ public class CameraController: MonoBehaviour {
 					moveBack = (camInit.transform.position - selectedCamera.transform.position).normalized * pinchSpeed;
 
 					selectedCamera.transform.position = new Vector3(    Mathf.Clamp( moveBack.x + selectedCamera.transform.position.x,-currentRightLimit, currentRightLimit ),
-						                                                Mathf.Clamp(moveBack.y + selectedCamera.transform.position.y ,camMinY.position.y,camInit.position.y),
+						                                                Mathf.Clamp(moveBack.y + selectedCamera.transform.position.y ,camMinY.position.y,20.0f),
 					                                                    Mathf.Clamp(moveBack.z + selectedCamera.transform.position.z ,currentBackLimit , currentForwardLimit)
 						                                                );
 					

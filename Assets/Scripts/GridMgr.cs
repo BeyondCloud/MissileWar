@@ -12,8 +12,8 @@ public class GridMgr : MonoBehaviour {
 	public GameObject touchPanel;
 
 
-	public static int gridWidth = 14;
-	public static int gridLength = 10;
+	public static int gridWidth = 28;
+	public static int gridLength = 16;
 	public static float panelWidth = 1;
 
 	public static int cursorSize = 2;
